@@ -47,4 +47,7 @@ data "aws_subnets" "private" {
 
 data "aws_ecr_authorization_token" "ecr_token" {} 
 
- 
+resource "local_file" "url" {
+    content  = aws_lb.taskoverflow.dns_name # replace this with a URL from your terraform
+    filename = "./api.txt"
+}
